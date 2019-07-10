@@ -1,5 +1,9 @@
 FROM tlecreate/php_nginx_fastcgi_cache:alpine
 
+COPY conf/fastcgi-cache-rules.conf /etc/nginx/cache-rules.d/
+
+COPY conf/wordpress.conf /etc/nginx/html-rules.d/
+
 # Install wordpress
 
 RUN curl https://wordpress.org/latest.tar.gz -o /opt/wordpress.tar.gz && \
